@@ -1,7 +1,7 @@
 # HA-Openhasp-for-Shelly-TRV
 openhasp plate to manage several shelly TRV thermostatic radiator valves in HomeAssistant
 
-#Description:
+# Description:
 - Homeassistant installed on a raspberry PI
 - Homeassistant configuration: Homeassistant 2023.4.2 Supervisor 2023.04.0 Operating System 9.5 Frontend 20230309.1 - latest 
 - Used display is a Sunton ESP32-8048S070 (ESP32-S3) (see devices page on OpenHasp website).  Resolution 800*480.  For other resolutions, the pages.jsonl file (see below) will have to be adapted.
