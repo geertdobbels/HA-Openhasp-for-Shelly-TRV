@@ -127,7 +127,7 @@ plate:
         "changed":
           - service: openhasp.command
             target:
-              entity_id: openhasp.your_plate
+              entity_id: openhasp.plate
             data:
               keyword: p1b26.text
               parameters: >
@@ -139,51 +139,31 @@ plate:
                 {{ "#909090 \u2022# #909090 \u2022# #000000 \u2022#" | e }}
                 {% endif %}
 
-    # - obj: "p1b42" # dropdown with fan_modes
-    #   properties:
-    #     "options": >
-    #       {% if state_attr(states('sensor.thermroom'),'fan_modes') is not none %}{%for mode in state_attr(states('sensor.thermroom'),'fan_modes')%}
-    #       {%- if mode == 'auto' -%}
-    #       Automatic{{"\n"|e}}
-    #       {%- elif mode == 'low' -%}
-    #       Low{{"\n"|e}}
-    #       {%- elif mode == 'medium' -%}
-    #       Medium{{"\n"|e}}
-    #       {%- elif mode == 'high' -%}
-    #       High{{"\n"|e}}
-    #       {%- elif mode == 'turbo' -%}
-    #       Turbo{{"\n"|e}}
-    #       {%- endif -%}
-    #       {%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
-    #     "click": "{{ 'false' if (is_state(states('sensor.thermroom'),'unavailable') or is_state(states('sensor.thermroom'),'unknown')) else 'true' }}"
-    #     "val": >
-    #       {% if not (is_state(states('sensor.thermroom'),'unavailable')) %}{%for mode in state_attr(states('sensor.thermroom'),'fan_modes')%}
-    #       {{loop.index -1 if mode == state_attr(states('sensor.thermroom'),'fan_mode') }}
-    #       {%-endfor%}{% endif %}
-    #   event:
-    #     "changed":
-    #       - service: climate.set_fan_mode
-    #         target:
-    #           entity_id: "{{ states('sensor.thermroom') }}"
-    #         data:
-    #           fan_mode: >
-    #             {% if text == "Automatic" -%}
-    #             auto
-    #             {% elif text == 'Low' -%}
-    #             low
-    #             {% elif text == 'Medium' -%}
-    #             medium
-    #             {% elif text == 'High' -%}
-    #             high
-    #             {% elif text == 'Turbo' -%}
-    #             turbo
-    #             {% endif -%}
+    - obj: "p1b42" # dropdown with hvac_modes
+      properties:
+        "options": >
+          {% if state_attr(states('sensor.thermroom'),'hvac_modes') is not none %}{%for mode in state_attr(states('sensor.thermroom'),'hvac_modes')%}
+          {{mode}} {{"\n"|e}}
+          {%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
+        "click": "{{ 'false' if (is_state(states('sensor.thermroom'),'unavailable') or is_state(states('sensor.thermroom'),'unknown')) else 'true' }}"
+        "val": >
+          {% if not (is_state(states('sensor.thermroom'),'unavailable')) %}{%for mode in state_attr(states('sensor.thermroom'),'hvac_modes')%}
+          {{loop.index -1 if mode == state_attr(states('sensor.thermroom'),'hvac_mode') }}
+          {%-endfor%}{% endif %}
+      event:
+        "changed":
+          - service: climate.set_hvac_mode
+            target:
+              entity_id: "{{ states('sensor.thermroom') }}"
+            data:
+              hvac_mode: >
+                {{text}}
 
     - obj: "p1b43" # dropdown with trv preset modes
       properties:
         "options": >
           {% if state_attr(states('sensor.thermroom'),'preset_modes') is not none %}{%for mode in state_attr(states('sensor.thermroom'),'preset_modes')%}
-          {{ mode }} {{"\n"|e}}
+          {{mode}} {{"\n"|e}}
           {%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
         "click": "{{ 'false' if (is_state(states('sensor.thermroom'),'unavailable') or is_state(states('sensor.thermroom'),'unknown')) else 'true' }}"
         "val": >
@@ -197,11 +177,11 @@ plate:
               entity_id: "{{ states('sensor.thermroom') }}"
             data:
               preset_mode: >
-                {{ text }}
+                {{text}}
     - obj: "p1b50" # Buttonmatrix for selecting the shelly TRV
       properties:
         "options": >
-          ["Master","Baño1","Hall1","\n","Clara","Baño2","Hall2","\n","Arantza","Invit"," "]
+          ["Bed1","Bath1","Hall1","\n","Bed2","Bath2","Hall2","\n","Bed3","Invit"," "]
         "toggle": 1
         "one_check": 1
       event:
@@ -216,16 +196,17 @@ plate:
                 {% elif val == 2 %}
                 climate.trv_hall1
                 {% elif val == 3 %}
-                climate.trv_clara
+                climate.trv_bed2
                 {% elif val == 4 %}
                 climate.trv_bath2
                 {% elif val == 5 %}
                 climate.trv_hall2
                 {% elif val == 6 %}
-                climate.trv_arantza
+                climate.trv_bed3
                 {% elif val == 7 %}
                 climate.trv_invit
                 {% elif val == 8 %}
                 climate.trv_hall1
                 {% endif %}
               variable: thermroom
+
