@@ -13,7 +13,12 @@ openhasp plate to manage several shelly TRV thermostatic radiator valves in Home
 ## pages.jsonl
 In this case, using Openhasp on HomeAssistant is done by defining all graphical objects of the plate in the pages.jsonl file that is saved on the display board itself. 
 
+## openhasp.yaml
+Is where the connection is made between the entities of the Shelly TRV devices and the objects of the OpenHASP plate.
+
 ## ToDo
-- Make it possible for multiple displays to use the same plate logic and avoid having to copy-paste the contents of openhasp.yaml for each plate/display
+- Make it possible for multiple displays to use the same plate logic and avoid having to copy-paste the contents of openhasp.yaml for each plate/display (suggestions are welcome)
 - Do the above in such a way that each plate has its own variable sensor.thermroom to avoid switching rooms on one plate to be reflected on the other plates.
+- Autodetect all shelly TRV instead of listing them in the yaml file.
+- Sensitivity and usability of the arc slider is poor.  I wonder if it can be improved.  For now, I do not use it often since I mainly switch between presets to adjust temperatures or use the short click on the gauge center to increase temperature and long click to decrease
  
