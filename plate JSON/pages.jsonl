@@ -14,7 +14,7 @@
 {"page":1,"id":42,"obj":"dropdown","x":15,"y":10,"w":110,"h":30,"parentid":32,"options":"fan_modes","direction":"1","text_font":22,"radius":5}
 {"page":1,"id":43,"obj":"dropdown","x":15,"y":10,"w":110,"h":30,"parentid":33,"options":"hvac_modes","direction":"1","text_font":22,"radius":5}
 
-{"page":1,"id":50,"obj":"btnmatrix","x":400,"y":42,"w":400,"h":200,"options":["Dorm","Bath","Clara","\n","Arantza","Hall1","Hall2","\n","Bano2","Invit","Office"],"text_font":32,"bg_opa":0,"border_opa":0,"toggle":1,"one_check":1}
+{"page":1,"id":50,"obj":"btnmatrix","x":400,"y":42,"w":400,"h":200,"options":["Bed1","Bath1","Bed2","\n","Bed3","Hall1","Hall2","\n","Bath2","Invit","Office"],"text_font":32,"bg_opa":0,"border_opa":0,"toggle":1,"one_check":1}
 
 {"page":0,"id":3,"obj":"btn","x":0,"y":0,"w":840,"h":40,"text":"openHASP","value_font":18,"text_font":18,"bg_color":"#2C3E50","text_color":"#FFFFFF","radius":0,"border_side":0}
 {"page":0,"id":4,"obj":"btn","action":{"down": "page prev"},"x":0,"y":448,"w":79,"h":32,"bg_color":"#2C3E50","text":"\uE141","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":28}
