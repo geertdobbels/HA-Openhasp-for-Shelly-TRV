@@ -1,6 +1,8 @@
 # HA-Openhasp-for-Shelly-TRV
 openhasp plate to manage several shelly TRV thermostatic radiator valves in HomeAssistant
 
+![My Image](screen.jpg)
+
 ## Description:
 - Homeassistant installed on a raspberry PI
 - Homeassistant configuration: Homeassistant 2023.4.2 Supervisor 2023.04.0 Operating System 9.5 Frontend 20230309.1 - latest 
