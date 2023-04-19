@@ -16,7 +16,11 @@ openhasp plate to manage several shelly TRV thermostatic radiator valves in Home
 In this case, using Openhasp on HomeAssistant is done by defining all graphical objects of the plate in the pages.jsonl file that is saved on the display board itself. 
 
 ## openhasp.yaml
-Is where the connection is made between the entities of the Shelly TRV devices and the objects of the OpenHASP plate.
+Is where the connection is made between the entities of the Shelly TRV devices and the objects of the OpenHASP plate. To use it, copy the file in the same folder as configuration.yaml and add
+```
+openhasp: !include openhasp.yaml
+```
+in the configuration.yaml file to refer to it.
 
 ## ToDo
 - Make it possible for multiple displays to use the same plate logic and avoid having to copy-paste the contents of openhasp.yaml for each plate/display (suggestions are welcome)
