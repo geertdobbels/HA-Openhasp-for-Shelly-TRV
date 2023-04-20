@@ -22,6 +22,8 @@ openhasp: !include openhasp.yaml
 ```
 in the configuration.yaml file to refer to it.
 
+**sensor.thermroom**: This entity is a variable.  Install "variables+history" from HACS.  Once installed go to Settings-Devices and Services, add integration, look for variables+history, add a new sensor and name it "thermroom".  Once this is done, a new sensor "sensor.thermroom" is created.  The state of this sensor is the device name of the TRV you select on the Button Matrix on the OpenHasp screen. 
+
 ## ToDo
 - Make it possible for multiple displays to use the same plate logic and avoid having to copy-paste the contents of openhasp.yaml for each plate/display (suggestions are welcome)
 - Do the above in such a way that each plate has its own variable sensor.thermroom to avoid switching rooms on one plate to be reflected on the other plates.
